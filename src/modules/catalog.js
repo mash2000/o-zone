@@ -1,3 +1,7 @@
+import { categoryFilter } from "./filters"
+import load from "./load"
+import renderGoods from "./renderGoods"
+
 const catalog = () => {
   const btnCatalog = document.querySelector('.catalog-button > button')
   const catalogModal = document.querySelector('.catalog')
@@ -18,7 +22,10 @@ const catalog = () => {
   catalogModalItems.forEach(item => {
     item.addEventListener('click', () => {
       const text = item.textContent
-      console.log(text);
+
+      load().then((data) => {
+        renderGoods(categoryFilter(data, text))
+      })
     })
   })
 }
