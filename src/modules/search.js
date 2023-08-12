@@ -1,0 +1,17 @@
+import load from "./load"
+import renderGoods from "./renderGoods"
+import { searchFilter } from "./filters"
+
+const search = () => {
+  const searchInput = document.querySelector('.search-wrapper_input')
+
+  searchInput.addEventListener('input', (e) => {
+    const value = e.target.value
+
+    load().then((data) => {
+      renderGoods(searchFilter(data, value))
+    })
+  })
+}
+
+export default search
