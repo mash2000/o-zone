@@ -9,3 +9,9 @@ export const categoryFilter = (goods, value) => {
     return goodsItem.category === value
   })
 }
+
+export const saleFilter = (goods) => {
+  return goods.filter((goodsItem) => {
+    return goodsItem.sale
+  })
+}
