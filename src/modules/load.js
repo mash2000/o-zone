@@ -1,10 +1,9 @@
-const load = (str) => {
-  return fetch(
-    `https://o-zone-42e77-default-rtdb.firebaseio.com/goods.json`
-    )
-    .then((response) => {
-      return response.json()
-    })
-}
+'use strict';
+import getData from "./getData";
+import renderGoods from "./renderGoods";
 
-export default load
+export default load;
+
+function load() {
+    getData().then((data) => renderGoods(data));
+}

@@ -1,22 +1,13 @@
-const postData = () => {
-  return fetch('https://o-zone-42e77-default-rtdb.firebaseio.com/goods/24', {
-    method: 'DELETE'
-  })
-  // return fetch('https://o-zone-42e77-default-rtdb.firebaseio.com/goods.json', {
-  //       method: 'POST',
-  //       body: JSON.stringify({
-  //         id: 24,
-  //         title: "Игра Onrush (PS4 Sony)",
-  //         price: 1794,
-  //         sale: true,
-  //         img: "https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg",
-  //         category: "Игры и софт"
-  //       }),
-  //       headers: {
-  //         'Content-type': 'application/json; charset=UTF-8'
-  //       },
-  //     })
-  //     .then(response => response.json())
-}
+'use strict';
 
-export default postData
+export default postData;
+
+function postData(cart) {
+    return fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify(cart),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    }).then(res => res.json());
+}
